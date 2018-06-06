@@ -1,4 +1,4 @@
-{% set version = "0.14.3" %}
+{% set version = "0.15.0" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/sjstats_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 743610323cf5bea0795cb1bef357d046596b8ac2ea24e3de82161385f46fa039
+  sha256: 2b041295b2a6e8eca5d34879942dbf0aa70bb59045a765c670b4fbf8c73cc3bf
 
 build:
   number: 0
