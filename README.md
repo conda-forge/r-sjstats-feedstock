@@ -1,7 +1,7 @@
 About r-sjstats
 ===============
 
-Home: https://github.com/strengejacke/sjstats
+Home: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
 
 Package license: GPL-3
 
