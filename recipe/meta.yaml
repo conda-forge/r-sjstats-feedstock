@@ -1,5 +1,4 @@
-{% set version = "0.15.0" %}
-
+{% set version = '0.16.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,30 +9,31 @@ package:
 source:
   fn: sjstats_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/sjstats_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 2b041295b2a6e8eca5d34879942dbf0aa70bb59045a765c670b4fbf8c73cc3bf
+    - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
+  sha256: 2249f3b68b8540ccc79fa52c1f23b9105f082a52f8e7f67a33efabf4cb1f6a07
 
 build:
+  merge_build_host: True  # [win]
   number: 0
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+  host:
     - r-base
     - r-mass
     - r-matrix
     - r-bayesplot
-    - r-broom
+    - r-broom >=0.4.5
     - r-coin
     - r-crayon
     - r-dplyr >=0.7.1
     - r-emmeans
-    - r-glmmtmb
+    - r-glmmtmb >=0.2.2.0
     - r-lme4 >=1.1_12
     - r-lmtest >=0.9_34
     - r-magrittr
@@ -44,23 +44,22 @@ requirements:
     - r-pwr
     - r-rlang
     - r-sandwich >=2.3_4
-    - r-sjlabelled >=1.0.8
-    - r-sjmisc >=2.7.0
+    - r-sjlabelled >=1.0.11
+    - r-sjmisc >=2.7.3
     - r-tibble >=1.3.3
     - r-tidyr >=0.7.0
     - r-tidyselect
-
   run:
     - r-base
     - r-mass
     - r-matrix
     - r-bayesplot
-    - r-broom
+    - r-broom >=0.4.5
     - r-coin
     - r-crayon
     - r-dplyr >=0.7.1
     - r-emmeans
-    - r-glmmtmb
+    - r-glmmtmb >=0.2.2.0
     - r-lme4 >=1.1_12
     - r-lmtest >=0.9_34
     - r-magrittr
@@ -71,19 +70,19 @@ requirements:
     - r-pwr
     - r-rlang
     - r-sandwich >=2.3_4
-    - r-sjlabelled >=1.0.8
-    - r-sjmisc >=2.7.0
+    - r-sjlabelled >=1.0.11
+    - r-sjmisc >=2.7.3
     - r-tibble >=1.3.3
     - r-tidyr >=0.7.0
     - r-tidyselect
 
 test:
   commands:
-    - $R -e "library('sjstats')"  # [not win]
+    - $R -e "library('sjstats')"           # [not win]
     - "\"%R%\" -e \"library('sjstats')\""  # [win]
 
 about:
-  home: https://github.com/strengejacke/sjstats
+  home: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
   license: GPL-3
   summary: Collection of convenient functions for common statistical computations, which are
     not directly provided by R's base or stats packages. This package aims at providing,
