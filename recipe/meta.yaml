@@ -1,4 +1,4 @@
-{% set version = '0.16.0' %}
+{% set version = '0.17.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -11,7 +11,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 2249f3b68b8540ccc79fa52c1f23b9105f082a52f8e7f67a33efabf4cb1f6a07
+  sha256: 3f58d159fdbc03f7d97144fb3b51b31353a02d9a7c4a44e00495d58772072b69
 
 build:
   merge_build_host: True  # [win]
@@ -23,6 +23,7 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-mass
@@ -31,24 +32,19 @@ requirements:
     - r-broom >=0.4.5
     - r-coin
     - r-crayon
-    - r-dplyr >=0.7.1
+    - r-dplyr
     - r-emmeans
     - r-glmmtmb >=0.2.2.0
-    - r-lme4 >=1.1_12
-    - r-lmtest >=0.9_34
+    - r-lme4
     - r-magrittr
     - r-modelr
     - r-nlme
-    - r-prediction
-    - r-purrr >=0.2.2
+    - r-purrr
     - r-pwr
     - r-rlang
-    - r-sandwich >=2.3_4
-    - r-sjlabelled >=1.0.11
-    - r-sjmisc >=2.7.3
-    - r-tibble >=1.3.3
-    - r-tidyr >=0.7.0
-    - r-tidyselect
+    - r-sjlabelled >=1.0.14
+    - r-sjmisc >=2.7.4
+    - r-tidyr
   run:
     - r-base
     - r-mass
@@ -57,24 +53,19 @@ requirements:
     - r-broom >=0.4.5
     - r-coin
     - r-crayon
-    - r-dplyr >=0.7.1
+    - r-dplyr
     - r-emmeans
     - r-glmmtmb >=0.2.2.0
-    - r-lme4 >=1.1_12
-    - r-lmtest >=0.9_34
+    - r-lme4
     - r-magrittr
     - r-modelr
     - r-nlme
-    - r-prediction
-    - r-purrr >=0.2.2
+    - r-purrr
     - r-pwr
     - r-rlang
-    - r-sandwich >=2.3_4
-    - r-sjlabelled >=1.0.11
-    - r-sjmisc >=2.7.3
-    - r-tibble >=1.3.3
-    - r-tidyr >=0.7.0
-    - r-tidyselect
+    - r-sjlabelled >=1.0.14
+    - r-sjmisc >=2.7.4
+    - r-tidyr
 
 test:
   commands:
@@ -91,11 +82,11 @@ about:
     these shortcut functions are generic (if appropriate), and can be applied not only
     to vectors, but also to other objects as well (e.g., the Coefficient of Variation
     can be computed for vectors, linear models, or linear mixed models; the r2()-function
-    returns the r-squared value for 'lm', 'glm', 'merMod' or 'lme' objects). The focus
-    of most functions lies on summary statistics or fit measures for regression models,
-    including generalized linear models and mixed effects models. However, some of the
-    functions also deal with other statistical measures, like Cronbach's Alpha, Cramer's
-    V, Phi etc.
+    returns the r-squared value for 'lm', 'glm', 'merMod' and other model objects).
+    The focus of most functions lies on summary statistics or fit measures for regression
+    models, including generalized linear models, mixed effects models and Bayesian models.
+    However, some  of the functions also deal with other statistical measures,  like
+    Cronbach's Alpha, Cramer's V, Phi etc.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
   license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
@@ -107,4 +98,5 @@ extra:
     - daler
     - jdblischak
     - cbrueffer
+    - dbast
     - ccwang002
