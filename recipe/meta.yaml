@@ -14,9 +14,9 @@ source:
   sha256: 3f58d159fdbc03f7d97144fb3b51b31353a02d9a7c4a44e00495d58772072b69
 
 build:
+  noarch: generic
   merge_build_host: True  # [win]
-  number: 0
-  skip: true  # [win32]
+  number: 1000
   rpaths:
     - lib/R/lib/
     - lib/
@@ -88,8 +88,7 @@ about:
     However, some  of the functions also deal with other statistical measures,  like
     Cronbach's Alpha, Cramer's V, Phi etc.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
