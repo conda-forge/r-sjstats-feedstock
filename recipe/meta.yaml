@@ -1,4 +1,4 @@
-{% set version = '0.17.2' %}
+{% set version = '0.17.3' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,34 +7,35 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: sjstats_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 99081819731da4c6da3ef7e20b335f5e9e47b5f3413e7021f539e5637719ef30
+  sha256: c8b56502b80efd0d22e9a9a6a16d6d2d36ff5c2a49ef0345b91ea1dbff15ca0a
 
 build:
-  noarch: generic
   merge_build_host: True  # [win]
-  number: 1000
+  number: 0
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
+  build:
+    - {{posix}}zip               # [win]
   host:
     - r-base
+    - r-mass
+    - r-matrix
     - r-bayesplot
-    - r-broom >=0.4.5    
+    - r-broom
     - r-coin
     - r-crayon
     - r-dplyr
     - r-emmeans
-    - r-lme4
     - r-glmmtmb >=0.2.2.0
+    - r-lme4
     - r-magrittr
-    - r-mass
-    - r-matrix
     - r-modelr
     - r-nlme
     - r-purrr
@@ -45,17 +46,17 @@ requirements:
     - r-tidyr
   run:
     - r-base
+    - r-mass
+    - r-matrix
     - r-bayesplot
-    - r-broom >=0.4.5    
+    - r-broom
     - r-coin
     - r-crayon
     - r-dplyr
     - r-emmeans
-    - r-lme4
     - r-glmmtmb >=0.2.2.0
+    - r-lme4
     - r-magrittr
-    - r-mass
-    - r-matrix
     - r-modelr
     - r-nlme
     - r-purrr
@@ -90,10 +91,28 @@ about:
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
+    - conda-forge/r
     - ccwang002
+
+# Package: sjstats
+# Type: Package
+# Encoding: UTF-8
+# Title: Collection of Convenient Functions for Common Statistical Computations
+# Version: 0.17.3
+# Date: 2019-01-04
+# Authors@R: person("Daniel", "Ludecke", role = c("aut", "cre"), email = "d.luedecke@uke.de", comment = c(ORCID = "0000-0002-8895-3206"))
+# Maintainer: Daniel Ludecke <d.luedecke@uke.de>
+# Description: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures, which otherwise could only be calculated with additional effort (like standard errors or root mean squared errors). Second, these shortcut functions are generic (if appropriate), and can be applied not only to vectors, but also to other objects as well (e.g., the Coefficient of Variation can be computed for vectors, linear models, or linear mixed models; the r2()-function returns the r-squared value for 'lm', 'glm', 'merMod' and other model objects). The focus of most functions lies on summary statistics or fit measures for regression models, including generalized linear models, mixed effects models and Bayesian models. However, some  of the functions also deal with other statistical measures,  like Cronbach's Alpha, Cramer's V, Phi etc.
+# License: GPL-3
+# Depends: R (>= 3.2), stats, utils
+# Imports: bayesplot, broom, coin, crayon, dplyr, emmeans, lme4, glmmTMB (>= 0.2.2.0), magrittr, MASS, Matrix, modelr, nlme, purrr, pwr, rlang, sjlabelled (>= 1.0.14), sjmisc (>= 2.7.5), tidyr
+# Suggests: brms, car, ggplot2, ggridges, graphics, knitr, loo, mediation, pbkrtest (>= 0.4-7), pROC, psych, sandwich, scales, splines, sjPlot, survey, rstan, rstantools, rstanarm, VGAM, Zelig, testthat
+# URL: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
+# BugReports: https://github.com/strengejacke/sjstats/issues
+# RoxygenNote: 6.1.1
+# VignetteBuilder: knitr
+# NeedsCompilation: no
+# Packaged: 2019-01-05 10:59:45 UTC; Daniel
+# Author: Daniel Ludecke [aut, cre] (<https://orcid.org/0000-0002-8895-3206>)
+# Repository: CRAN
+# Date/Publication: 2019-01-07 20:00:03 UTC
