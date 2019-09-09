@@ -1,4 +1,4 @@
-{% set version = '0.17.5' %}
+{% set version = '0.17.6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 8a1920574bfd8790d7d561ea6a9ec4d3e0b25766e6938beb52ea6d82fe5e3ef5
+  sha256: a2510e12f306cc4c08932b6da07820349b5df7a0400cd0680e8d9c06a2e3e187
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -26,36 +26,38 @@ requirements:
   host:
     - r-base
     - r-mass
-    - r-bayestestr >=0.2.0
+    - r-bayestestr >=0.2.5
     - r-broom
-    - r-dplyr
+    - r-dplyr >=0.8.1
     - r-emmeans
-    - r-insight >=0.3.0
+    - r-insight >=0.4.1
     - r-lme4
     - r-magrittr
     - r-modelr
-    - r-performance >=0.2.0
+    - r-parameters >=0.1.0
+    - r-performance >=0.3.0
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.0.17
-    - r-sjmisc >=2.7.8
+    - r-sjlabelled >=1.1.0
+    - r-sjmisc >=2.8.1
     - r-tidyr
   run:
     - r-base
     - r-mass
-    - r-bayestestr >=0.2.0
+    - r-bayestestr >=0.2.5
     - r-broom
-    - r-dplyr
+    - r-dplyr >=0.8.1
     - r-emmeans
-    - r-insight >=0.3.0
+    - r-insight >=0.4.1
     - r-lme4
     - r-magrittr
     - r-modelr
-    - r-performance >=0.2.0
+    - r-parameters >=0.1.0
+    - r-performance >=0.3.0
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.0.17
-    - r-sjmisc >=2.7.8
+    - r-sjlabelled >=1.1.0
+    - r-sjmisc >=2.8.1
     - r-tidyr
 
 test:
@@ -68,18 +70,14 @@ about:
   license: GPL-3
   summary: Collection of convenient functions for common statistical computations, which are
     not directly provided by R's base or stats packages. This package aims at providing,
-    first, shortcuts for statistical measures, which otherwise could only be calculated
-    with additional effort (like standard errors or root mean squared errors). Second,
-    these shortcut functions are generic (if appropriate), and can be applied not only
-    to vectors, but also to other objects as well (e.g., the Coefficient of Variation
-    can be computed for vectors, linear models, or linear mixed models; the r2()-function
-    returns the r-squared value for 'lm', 'glm', 'merMod' and other model objects).
-    The focus of most functions lies on summary statistics or fit measures for regression
-    models, including generalized linear models, mixed effects models and Bayesian models.
-    However, some  of the functions also deal with other statistical measures,  like
-    Cronbach's Alpha, Cramer's V, Phi etc.
+    first, shortcuts for statistical measures,  which otherwise could only be calculated
+    with additional effort  (like Cramer's V, Phi, or effect size statistics like Eta
+    or Omega squared),  or for which currently no functions available. Second, another
+    focus  lies on weighted variants of common statistical measures and tests  like
+    weighted standard error, mean, t-test, correlation, and more.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
@@ -90,21 +88,21 @@ extra:
 # Type: Package
 # Encoding: UTF-8
 # Title: Collection of Convenient Functions for Common Statistical Computations
-# Version: 0.17.5
-# Date: 2019-06-04
+# Version: 0.17.6
+# Date: 2019-09-08
 # Authors@R: person("Daniel", "Ludecke", role = c("aut", "cre"), email = "d.luedecke@uke.de", comment = c(ORCID = "0000-0002-8895-3206"))
 # Maintainer: Daniel Ludecke <d.luedecke@uke.de>
-# Description: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures, which otherwise could only be calculated with additional effort (like standard errors or root mean squared errors). Second, these shortcut functions are generic (if appropriate), and can be applied not only to vectors, but also to other objects as well (e.g., the Coefficient of Variation can be computed for vectors, linear models, or linear mixed models; the r2()-function returns the r-squared value for 'lm', 'glm', 'merMod' and other model objects). The focus of most functions lies on summary statistics or fit measures for regression models, including generalized linear models, mixed effects models and Bayesian models. However, some  of the functions also deal with other statistical measures,  like Cronbach's Alpha, Cramer's V, Phi etc.
+# Description: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures,  which otherwise could only be calculated with additional effort  (like Cramer's V, Phi, or effect size statistics like Eta or Omega squared),  or for which currently no functions available. Second, another focus  lies on weighted variants of common statistical measures and tests  like weighted standard error, mean, t-test, correlation, and more.
 # License: GPL-3
-# Depends: R (>= 3.2), stats, utils
-# Imports: bayestestR (>= 0.2.0), broom, dplyr, emmeans, insight (>= 0.3.0), lme4, magrittr, MASS, modelr, performance (>= 0.2.0), purrr, rlang, sjlabelled (>= 1.0.17), sjmisc (>= 2.7.8), tidyr
-# Suggests: brms, car, coin, ggplot2, graphics, httr, knitr, mediation, nlme, pbkrtest (>= 0.4-7), pwr, sandwich, sjPlot, survey, rstan, rstanarm, VGAM, Zelig, testthat
+# Depends: R (>= 3.2)
+# Imports: bayestestR (>= 0.2.5), broom, dplyr (>= 0.8.1), emmeans, insight (>= 0.4.1), lme4, magrittr, MASS, modelr, parameters (>= 0.1.0), performance (>= 0.3.0), purrr, rlang, sjlabelled (>= 1.1.0), sjmisc (>= 2.8.1), stats, tidyr, utils
+# Suggests: brms, car, coin, ggplot2, graphics, httr, knitr, mediation, nlme, pbkrtest (>= 0.4-7), pscl, pwr, sandwich, sjPlot, survey, rstan, rstanarm, VGAM, Zelig, testthat
 # URL: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
 # BugReports: https://github.com/strengejacke/sjstats/issues
 # RoxygenNote: 6.1.1
 # VignetteBuilder: knitr
 # NeedsCompilation: no
-# Packaged: 2019-06-04 12:32:17 UTC; mail
+# Packaged: 2019-09-08 16:51:16 UTC; Daniel
 # Author: Daniel Ludecke [aut, cre] (<https://orcid.org/0000-0002-8895-3206>)
 # Repository: CRAN
-# Date/Publication: 2019-06-04 13:10:02 UTC
+# Date/Publication: 2019-09-08 22:00:03 UTC
