@@ -1,4 +1,4 @@
-{% set version = "0.17.7" %}
+{% set version = "0.17.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 8661fca49c6fd9853d42760a253a83336480520560fcad5c007721740ba03909
+  sha256: ebc3336626729aba61504c4f7c46b2e5e7554fd0a3d5292fec9bd658d9c24f3d
 
 build:
   merge_build_host: True  # [win]
@@ -25,39 +25,41 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
-    - r-mass
-    - r-bayestestr >=0.2.5
+    - r-bayestestr >=0.4.0
     - r-broom
     - r-dplyr >=0.8.1
+    - r-effectsize
     - r-emmeans
-    - r-insight >=0.4.1
+    - r-insight >=0.8.0
     - r-lme4
     - r-magrittr
+    - r-mass
     - r-modelr
-    - r-parameters >=0.1.0
-    - r-performance >=0.3.0
+    - r-parameters >=0.4.0
+    - r-performance >=0.4.0
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.0
-    - r-sjmisc >=2.8.1
+    - r-sjlabelled >=1.1.1
+    - r-sjmisc >=2.8.2
     - r-tidyr
   run:
     - r-base
-    - r-mass
-    - r-bayestestr >=0.2.5
+    - r-bayestestr >=0.4.0
     - r-broom
     - r-dplyr >=0.8.1
+    - r-effectsize
     - r-emmeans
-    - r-insight >=0.4.1
+    - r-insight >=0.8.0
     - r-lme4
     - r-magrittr
+    - r-mass
     - r-modelr
-    - r-parameters >=0.1.0
-    - r-performance >=0.3.0
+    - r-parameters >=0.4.0
+    - r-performance >=0.4.0
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.0
-    - r-sjmisc >=2.8.1
+    - r-sjlabelled >=1.1.1
+    - r-sjmisc >=2.8.2
     - r-tidyr
 
 test:
