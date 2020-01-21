@@ -1,4 +1,4 @@
-{% set version = "0.17.7" %}
+{% set version = "0.17.8" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: 8661fca49c6fd9853d42760a253a83336480520560fcad5c007721740ba03909
+  sha256: ebc3336626729aba61504c4f7c46b2e5e7554fd0a3d5292fec9bd658d9c24f3d
 
 build:
   merge_build_host: True  # [win]
