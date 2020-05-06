@@ -1,4 +1,4 @@
-{% set version = "0.17.9" %}
+{% set version = "0.18.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: d5923707a2daaf4ad5094f1ab9544ed6e2f190d255b4af0e7071ee1e0d536824
+  sha256: e04b84bb2dcf96a779f0e40e2bed2a778fbf579052cc8f143686cb073373619d
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -70,16 +70,11 @@ test:
 about:
   home: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
   license: GPL-3
-  summary: Collection of convenient functions for common statistical computations, which are
-    not directly provided by R's base or stats packages. This package aims at providing,
-    first, shortcuts for statistical measures,  which otherwise could only be calculated
-    with additional effort  (like Cramer's V, Phi, or effect size statistics like Eta
-    or Omega squared),  or for which currently no functions available. Second, another
-    focus  lies on weighted variants of common statistical measures and tests  like
-    weighted standard error, mean, t-test, correlation, and more.
+  summary: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures,  which otherwise could only be calculated with additional effort  (like Cramer's V, Phi, or effect size
+    statistics like Eta or Omega squared),  or for which currently no functions available. Second, another focus  lies on weighted variants of common statistical measures and tests  like weighted standard error, mean, t-test, correlation, and more.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
