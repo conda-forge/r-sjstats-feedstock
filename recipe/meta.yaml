@@ -25,41 +25,41 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-bayestestr >=0.4.0
+    - r-mass
+    - r-bayestestr
     - r-broom
-    - r-dplyr >=0.8.1
+    - r-dplyr
     - r-effectsize
     - r-emmeans
-    - r-insight >=0.8.0
+    - r-insight
     - r-lme4
     - r-magrittr
-    - r-mass
     - r-modelr
-    - r-parameters >=0.4.0
-    - r-performance >=0.4.0
+    - r-parameters
+    - r-performance
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.1
-    - r-sjmisc >=2.8.2
+    - r-sjlabelled
+    - r-sjmisc
     - r-tidyr
   run:
     - r-base
-    - r-bayestestr >=0.4.0
+    - r-mass
+    - r-bayestestr
     - r-broom
-    - r-dplyr >=0.8.1
+    - r-dplyr
     - r-effectsize
     - r-emmeans
-    - r-insight >=0.8.0
+    - r-insight
     - r-lme4
     - r-magrittr
-    - r-mass
     - r-modelr
-    - r-parameters >=0.4.0
-    - r-performance >=0.4.0
+    - r-parameters
+    - r-performance
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.1
-    - r-sjmisc >=2.8.2
+    - r-sjlabelled
+    - r-sjmisc
     - r-tidyr
 
 test:
