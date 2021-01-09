@@ -1,4 +1,4 @@
-{% set version = "0.18.0" %}
+{% set version = "0.18.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: e04b84bb2dcf96a779f0e40e2bed2a778fbf579052cc8f143686cb073373619d
+  sha256: 6a526eb940c3f8ab15ea03b892577c40a80861dcf19fe23a8cd8406fa50768b3
 
 build:
   merge_build_host: true  # [win]
@@ -25,41 +25,41 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-bayestestr >=0.4.0
+    - r-mass
+    - r-bayestestr
     - r-broom
-    - r-dplyr >=0.8.1
+    - r-dplyr
     - r-effectsize
     - r-emmeans
-    - r-insight >=0.8.0
+    - r-insight
     - r-lme4
     - r-magrittr
-    - r-mass
     - r-modelr
-    - r-parameters >=0.4.0
-    - r-performance >=0.4.0
+    - r-parameters
+    - r-performance
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.1
-    - r-sjmisc >=2.8.2
+    - r-sjlabelled
+    - r-sjmisc
     - r-tidyr
   run:
     - r-base
-    - r-bayestestr >=0.4.0
+    - r-mass
+    - r-bayestestr
     - r-broom
-    - r-dplyr >=0.8.1
+    - r-dplyr
     - r-effectsize
     - r-emmeans
-    - r-insight >=0.8.0
+    - r-insight
     - r-lme4
     - r-magrittr
-    - r-mass
     - r-modelr
-    - r-parameters >=0.4.0
-    - r-performance >=0.4.0
+    - r-parameters
+    - r-performance
     - r-purrr
     - r-rlang
-    - r-sjlabelled >=1.1.1
-    - r-sjmisc >=2.8.2
+    - r-sjlabelled
+    - r-sjmisc
     - r-tidyr
 
 test:
@@ -69,7 +69,7 @@ test:
 
 about:
   home: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
-  license: GPL-3
+  license: GPL-3.0-only
   summary: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures,  which otherwise could only be calculated with additional effort  (like Cramer's V, Phi, or effect size
     statistics like Eta or Omega squared),  or for which currently no functions available. Second, another focus  lies on weighted variants of common statistical measures and tests  like weighted standard error, mean, t-test, correlation, and more.
   license_family: GPL3
