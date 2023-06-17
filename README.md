@@ -1,11 +1,11 @@
-About r-sjstats
-===============
+About r-sjstats-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sjstats-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/strengejacke/sjstats, https://strengejacke.github.io/sjstats
 
 Package license: GPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-sjstats-feedstock/blob/main/LICENSE.txt)
 
 Summary: Collection of convenient functions for common statistical computations, which are not directly provided by R's base or stats packages. This package aims at providing, first, shortcuts for statistical measures,  which otherwise could only be calculated with additional effort  (like Cramer's V, Phi, or effect size statistics like Eta or Omega squared),  or for which currently no functions available. Second, another focus  lies on weighted variants of common statistical measures and tests  like weighted standard error, mean, t-test, correlation, and more.
 
