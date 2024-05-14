@@ -1,4 +1,4 @@
-{% set version = "0.18.2" %}
+{% set version = "0.19.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: d0188ebfbc4d71fb2316df65f05223d2b2cef8360f65adfe5640bfedf1323e28
+  sha256: d3e2fd3ac8e8a95b6d081a10674357c64adcf00bb707f97e1034c36c9f181b1f
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
