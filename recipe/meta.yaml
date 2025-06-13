@@ -1,4 +1,4 @@
-{% set version = "0.19.0" %}
+{% set version = "0.19.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/sjstats_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/sjstats/sjstats_{{ version }}.tar.gz
-  sha256: d3e2fd3ac8e8a95b6d081a10674357c64adcf00bb707f97e1034c36c9f181b1f
+  sha256: 81b548fcc6403a53d742004e21c53d6645743e75fbff0e9b81ec835bca4b1948
 
 build:
-  number: 1
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
